@@ -5,15 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kat Cool Game</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .download-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>kat cool game :D</h1>
         <p>Click the button below to download the game:</p>
-        <a href="YOUR_DOWNLOAD_LINK_HERE" download>
-            <button class="download-btn">Download Game</button>
+        <a id="download-link" href="katcoolgame.zip" download>
+            <button id="download-btn" class="download-btn">Download Game</button>
         </a>
         <p class="note">Make sure to follow the installer instructions after downloading.</p>
     </div>
+
+    <script>
+        const button = document.getElementById("download-btn");
+
+        button.addEventListener("click", () => {
+            button.disabled = true;
+            button.textContent = "Downloading...";
+
+            setTimeout(() => {
+                button.disabled = false;
+                button.textContent = "Download Game";
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
